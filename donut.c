@@ -1,6 +1,8 @@
 #include <string.h>
 #include <math.h>
 #include <stdint.h>
+#include <stdlib.h>
+#include <stdio.h>
 char** color_map = NULL;
 #define BUFSZ 1760
 double freq = 0.01;

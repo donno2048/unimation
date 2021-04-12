@@ -28,7 +28,7 @@ def I2T(File):
 			counter = 0
 			if field: stdout.write("\n")
 			field = not field
-vidcap = VideoCapture('./video.mp4')
+vidcap = VideoCapture('./video.mp4') # This is the video shown
 success, image = vidcap.read()
 while success:
 	imwrite(".jpg", resize(image, (144, 108), interpolation = 3))

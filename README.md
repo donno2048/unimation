@@ -4,6 +4,8 @@ When compiling the c files use the `-lm` flag
 
 The python file is compatible with python3 and python2 but you have to maximize to terminal when running it.
 
+If you get `_curses.error: addwstr() returned ERR` try decreasing the font size.
+
 To create the _badapple.txt_ for _player.py_ I used this script:
 
 ```py

@@ -1,4 +1,4 @@
-from curses import error, wrapper
+from curses import wrapper
 from time import sleep
 from subprocess import Popen
 def play(window):

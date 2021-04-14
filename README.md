@@ -5,9 +5,9 @@ When compiling the c files use the `-lm` flag
 The cpp file is for Windows, after compiling (`g++ doublePendulum.cpp -o main`) use it like so:
 
 ```bat
-rem To simple see one double pendulum
+rem To simply see one double pendulum
 main
-rem To see n double pendulum
+rem To see n double pendulums
 main n
 ```
 

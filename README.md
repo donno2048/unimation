@@ -2,6 +2,15 @@ Those are some unicode animations, donut2.c is for Windows and donut.c is for Li
 
 When compiling the c files use the `-lm` flag
 
+The cpp file is for Windows, after compiling (`g++ doublePendulum.cpp -o main`) use it like so:
+
+```bat
+rem To simple see one double pendulum
+main
+rem To see n double pendulum
+main n
+```
+
 The python file is compatible with python3 and python2 but you have to maximize to terminal when running it.
 
 If you get `_curses.error: addwstr() returned ERR` try decreasing the font size.

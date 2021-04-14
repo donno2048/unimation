@@ -77,6 +77,7 @@ int main(int argc, char** argv) {
 	for(int i = 0; i < HEIGHT / 16 - 1; i++) platno[i][WIDTH / 8] = '\n';
 	platno[HEIGHT / 16 - 1][WIDTH / 8] = '\0';
 	for(int i = 0; i < HEIGHT / 16; i++) for(int j = 0; j < WIDTH / 8; j++) platno[i][j] = ' ';
+	ShowWindow(GetConsoleWindow(), 3);
 	while(true) {
 		SetConsoleCursorPosition(GetStdHandle(-11), {0, 0});
 		float currentTime = tmr.elapsed();

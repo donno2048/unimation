@@ -1,7 +1,9 @@
 #include <cmath>
 #include <iostream>
 #include <windows.h>
-const int HEIGHT = 125, WIDTH = 40;
+#define min(a,b) (((a) < (b)) ? (a) : (b))
+#define max(a,b) (((a) > (b)) ? (a) : (b))
+const int HEIGHT = 40, WIDTH = 80;
 class Plot {
 	public:
 		Plot() {
@@ -10,9 +12,12 @@ class Plot {
 				for (int j = 0; j < WIDTH; j++) platno[i][j] = ' ';
 			}
 		}
-		void zero() {for (int i = 0; i < HEIGHT; i++) for (int j = 0; j < WIDTH; j++) platno[i][j] = ' ';}
+		void zero() {
+			for (int i = 0; i < HEIGHT; i++) for (int j = 0; j < WIDTH; j++) platno[i][j] = ' ';
+		  	SetConsoleCursorPosition(GetStdHandle(-11), {0, 0});
+		}
 		void print() {puts(platno[0]);}
-		void addPoint(int x, int y, char c) {if (std::min(x, y) >= 0 && x < WIDTH && y < HEIGHT) platno[y][x] = c;}
+		void addPoint(int x, int y, char c) {if (min(x, y) >= 0 && x < WIDTH && y < HEIGHT) platno[y][x] = c;}
 		void addLine(int A, int B, int C, int D, char c) {
 			if (A > C) {
 				int t = A;
@@ -48,7 +53,7 @@ class Plot {
 			}
 			else {
 				int dx = abs(A - C), dy = abs(B - D), xi = B > D ? ((A < C) ? -1 : 1) : ((A < C) ? 1 : -1), di = 2 * dx - dy, x = B > D ? C : A;
-				for (int y = std::min(D, B); y <= std::max(D, B); y++) {
+				for (int y = min(D, B); y <= max(D, B); y++) {
 					addPoint(x, y, c);
 					if (di > 0) {
 						x += xi;
@@ -64,7 +69,7 @@ class Plot {
 int main(int argc, char** argv) {
 	Plot plt;
 	int n = (argc - 1) ? atoi(argv[1]) : 1;
-	float length = 150, mass = 10, O1[n], O2[n], w1[n] = {0}, w2[n] = {0}, g = 9.81f;
+	float length = 150, mass = 10, *O1 = new float[n], *O2 = new float[n], *w1 = new float[n](), *w2 = new float[n](), g = 9.81f;
 	std::fill_n(O2, n, 3.14159265358979323846);
 	if (n % 2) for (int i = 0; i < n; i++) O1[i] = O2[i] * (0.5f + 2 * i / (float) n); // symmetrical horizontally (initially)
 	else for (int i = 0; i < n; i++) O1[i] = O2[i] * (1 + (2 * i + 1) / (float) n); // Symmetric vertically (initially)

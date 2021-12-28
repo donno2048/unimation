@@ -50,6 +50,8 @@ while success:
 
 (You need to `pip3 install opencv-python Pillow` in order to do that)
 
+(on Linux you may need to run `sudo apt-get install ffmpeg libsm6 libxext6 -y` to use `opencv`)
+
 I used this script like so:
 
 ```sh
